@@ -1,0 +1,31 @@
+create table students(
+    sid integer,
+    sname varchar(30),
+    perc float,
+    gender varchar(30),
+    branch varchar(20)
+);
+insert into students values(101,'ravi',90,'male','cse');
+insert into students values(102,'rahul',90,'male','ece');
+insert into students values(103,'ram',98,'male','cse');
+insert into students values(104,'rani',50,'female','it');
+select * from students;
+create view cse_students as
+select * from students
+where branch='cse';
+select * from cse_students;
+create view ece_students as
+select * from students
+where branch='ece';
+select * from ece_students;
+create view it_students as
+select * from students
+where branch='it';
+select * from ece_students;
+update students
+set perc=95 where sid=104;
+select * from students;
+select * from it_students;
+update it_students
+set perc=99 where sid=-104;
+select * from it_students;
